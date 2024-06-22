@@ -1,5 +1,5 @@
 <?php
-include "admin\config\database.php";
+include "../admin\config\database.php";
 session_start();
 
 
@@ -22,11 +22,12 @@ if (isset($_POST["submit"])) {
         $time = time();
         $avatar_name = $time . $avatar["name"];
         $avName = $avatar["name"];
-        $avatar_destination = "images/" . $avatar_name;
+        $avatar_destination = "../images/" . $avatar_name;
         $avatar_tmpName = $avatar["tmp_name"];
         $allowedExtention = ["jpg", "png", "jpeg"];
         $extention = explode(".", $avatar["name"]);
         $extention = end($extention);
+        $hashedPass = password_hash($createpassword,PASSWORD_DEFAULT);
         if (in_array($extention , $allowedExtention)) {
             if ($avatar["size"] < 1000000) {
                move_uploaded_file($avatar_tmpName,$avatar_destination);
@@ -37,18 +38,18 @@ if (isset($_POST["submit"])) {
             $_SESSION["SignUp"] = "Please enter your avatar with JPG , PNG or JPEG";
         }
     }
+   
 }
-
-if(isset($_SESSION["SignUp"])){
-    header("Location: signup.php");
+if($_SESSION["SignUp"]){
+    header("Location: http://localhost/blog/signup.php");
     $_SESSION["signUpDataBack"] = $_POST;
     
 }else{
-    $InsertData = "INSERT INTO users (firstname,lastname,username,email,password,avatar) VALUES ('$firstname','$lastname','$username','$email','$createpassword','$avatar_name')";
+    $InsertData = "INSERT INTO users (firstname,lastname,username,email,password,avatar) VALUES ('$firstname','$lastname','$username','$email','$hashedPass','$avatar_name')";
     $result = mysqli_query($conn , $InsertData);
     if($result){
         $_SESSION["SignUp"] = "Registration Successfull";
-        header("Location: signIn.php");
+        header("Location: http://localhost/blog/signin.php");
     }
 
 }

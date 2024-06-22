@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,15 @@
     <section class="formSec">
         <div class="container sign_container">
             <h2>Sign Up</h2>
-            <div class="alert_message_error err">
-                <P>This is error</P>
+            <?php if(isset($_SESSION["signInValidation"])) : ?>
+            <div class="alert_message_error_err">
+                <P>
+                    <?= $_SESSION["signInValidation"];
+                    unset($_SESSION["signInValidation"]);
+                    ?>
+                </P>
             </div>
+            <?php endif ?>
             <form action="PHP Logics\signinLogic.php" method="POST">
                 <input type="text" placeholder="Username" name="Username" id="Username" required>
                 <input type="password" placeholder=" Password" name="Pass" id="Pass" required>

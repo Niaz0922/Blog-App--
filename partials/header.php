@@ -20,7 +20,7 @@ require "config/database.php";
         <div class="contianer nav-container">
             <a href="index.php" class="logo">EGATOR</a>
             <ul class="nav-items">
-                <li><a href="blog.php"><?php echo $_SESSION["SignIn1"]; ?></a></li>
+                <li><a href="blog.php"><?php $_SESSION["SignIn1"]; ?></a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="service.php">Services</a></li>
                 <li><a href="contact.php">Contact</a></li>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../admin\config\database.php";
 if(isset($_POST["submit"])){
     $username = $_POST["Username"];
@@ -13,5 +14,11 @@ if(isset($_POST["submit"])){
     if(mysqli_num_rows($UsernameResult)  == 1 && mysqli_num_rows($passwordResult) == 1){
         $_SESSION["SignIn1"] = $username;
         header("Location: http://localhost/blog/");
-}}
+}else{
+    header("Location: http://localhost/blog/signIn.php");
+    $_SESSION["signInValidation"] = "Username Or password do not exist";
+}
+
+
+}
 

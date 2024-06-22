@@ -30,7 +30,7 @@
                 </P>
             </div>
             <?php endif ?>
-             <form action="signupLogic.php" method="POST" enctype="multipart/form-data"> 
+             <form action="PHP Logics\signupLogic.php" method="POST" enctype="multipart/form-data"> 
                 <input type="text" placeholder="Firstname" value="<?php echo $firstname ?>" name="firstname" id="firstname" required>
                 <input type="text" placeholder="Lastname" value="<?php echo $lastname ?>" name="lastname" id="lastname" required>
                 <input type="text" placeholder="Username" value="<?php echo $username ?>" name="username" id="username" required>
