@@ -197,6 +197,16 @@ nav .logo {
     gap: 5rem;
     margin-bottom: 5rem;
 }
+.HeaderSign{
+    display: inline-block;
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    color: white;
+
+}
 .category-buttons {
     padding: 4rem 0;
     border-top: 2px solid var(--color-gray-900);
@@ -223,7 +233,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 1.2rem;
-}
+}button
 .footer-socials a {
     background: var(--color-bg);
     border-radius: 50%;
@@ -501,7 +511,7 @@ select {
     width: 12rem;
     align-items: center;
 }
-alert_message_error
+
 table {
     width: 45rem;
     text-align: left;
@@ -513,6 +523,7 @@ table {
     padding: 1rem;
     margin-right: 2rem;
     align-items: center;
+    background-color: var(--color-primary);
 }
 table th {
     background-color: var(--color-gray-700);
@@ -643,7 +654,7 @@ table td {
         display: none;
     }
     table {
-        width: 41rem;
+        width: 28rem;
     }
 }
 @media screen and (max-width:790px) {

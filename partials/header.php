@@ -1,12 +1,25 @@
 <?php
 session_start();
-require "config/database.php";
+include "C:/xampp/htdocs/blog/admin/config/database.php";
 
+if (isset($_SESSION["SignIn1"])) {
+    $username = $_SESSION["SignIn1"];
+    $sql = "SELECT *FROM users WHERE username = '$username'";
+    $result = $conn->query($sql);
+    if ($result) {
+        $row = $result->fetch_assoc();
+    }
+}
+
+if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
+    if ($row["IsAdmin"] == 1) {
+        header("Location:http://localhost/blog/admin/dashboard.php");
+    }
+}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,23 +27,41 @@ require "config/database.php";
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <nav>
-        
+
         <div class="contianer nav-container">
             <a href="index.php" class="logo">EGATOR</a>
             <ul class="nav-items">
-                <li><a href="blog.php"><?php $_SESSION["SignIn1"]; ?></a></li>
+                <li><a href="../blog.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="service.php">Services</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li class="nav-profile">
-                    <div class="avatar">
-                        <img src="images/avatar1.jpg" alt="">
-                    </div>
+                    <?php
+                    if (isset($_SESSION["SignIn1"])) {
+                        echo '
+                            <div class="avatar">
+                            <img width=100 height=100 src="images/' . $row["avatar"] . '" alt="">
+                        </div>
+                            ';
+                    } else {
+                        echo '<li><a  href="signIn.php">Sign In</a></li>';
+                    }
+
+                    ?>
+
                     <ul>
-                        <li><a href="admin/dashboard.php">Dahshboard</a></li>
-                        <li><a href="admin/logout.php">Logout</a></li>
+                        <?php
+                        if (isset($_SESSION["SignIn1"])) {
+                            echo '<li><a href="admin/dashboard.php">Dahshboard</a></li>';
+                            if ($row["IsAdmin"] == 1) {
+                                $_SESSION["admin"] = "Admin";
+                            }
+                            echo ' <li><a href="partials\logout.php">Logout</a></li>';
+                        }
+                        ?>
                     </ul>
                 </li>
             </ul>

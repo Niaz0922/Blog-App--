@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-include "partial/header.php"
+include "partial\header.php";
 
 ?>
     <section class="dashboard">
