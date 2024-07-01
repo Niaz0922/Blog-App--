@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <?php
+       
+    ?>
     <section class="formSec">
         <div class="container sign_container">
             <h2>Edit User</h2>
-            <form action="" method="POST">
+            <form action="../PHP Logics\editusersLogic.php" method="POST">
                 <input type="text" placeholder="Firstname" name="firstname" id="firstname" required>
                 <input type="text" placeholder="Lastname" name="lastname" id="lastname" required>
-                <select>
+                <input type="text" placeholder="Username" name="username" id="lastname" required>
+                <input type="email" placeholder="Email" name="email" id="lastname" required>
+                <select name="isadmin">
                     <option value="0">Authorization</option>
                     <option value="1">Admin</option>
                 </select>
-                <button type="submit" class="btn">Update user</button>
+                <input type="submit" name="submit" class="btn"></input>
+                <input type="hidden" name="Dbusername" id="DbUser">
             </form>
         </div>
+ 
     </section>
+    <script src="../javascript/edituser.js"></script>
 </body>
 </html>

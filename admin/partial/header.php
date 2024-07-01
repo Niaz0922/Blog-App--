@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
                     if (isset($_SESSION["SignIn1"])) {
                         echo '
                             <div class="avatar">
-                            <img width=100 height=100 src="../images/' . $row["avatar"] . '" alt="">
+                            <img src="../images/' . $row["avatar"] . '" alt="">
                         </div>
                             ';
                     } else {
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
 
                         <?php
                         if (isset($_SESSION["SignIn1"])) {
-                            echo ' <li><a href="admin/dashboard.php">Dahshboard</a></li>';
+                            echo ' <li><a href="http://localhost/blog/admin/dashboard.php">Dahshboard</a></li>';
                             if ($row["IsAdmin"] == 1) {
                                 $_SESSION["admin"] = "Admin";
                             } else {

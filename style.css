@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* ========================================= Variables Section Starts ================================  */
 :root {
     --color-primary: #6f6af8;
@@ -24,6 +25,7 @@
     --card-border-radius-4: 2rem;
     --card-border-radius-5: 5rem;
 }
+
 /* ========================================= Variables Section Ends ================================  */
 /* ========================================= Primary Section Starts ================================  */
 * {
@@ -36,6 +38,7 @@
     list-style: none;
     text-decoration: none;
 }
+
 body {
     font-family: "Montserrat", sans-serif;
     line-height: 1.6;
@@ -44,15 +47,18 @@ body {
     background-color: var(--color-bg);
     font-size: 0.9rem;
 }
+
 .container {
     width: var(--container-width-lg);
     max-width: 1800px;
     margin-inline: auto;
 }
+
 section {
     margin-top: 3rem;
     width: 100vw;
 }
+
 h1,
 h2,
 h3,
@@ -61,29 +67,36 @@ h5 {
     color: var(--color-white);
     line-height: 1.3;
 }
+
 h1 {
     font-size: 3rem;
     margin: 1rem 0;
 }
+
 h2 {
     font-size: 1.7rem;
     margin: 1rem 0;
 }
+
 h3 {
     font-size: 1.1rem;
     image-rendering: 0.8rem 0 0.5rem;
 }
+
 h4 {
     font-size: 1rem;
 }
+
 a {
     color: var(--color-white);
 }
+
 img {
     display: block;
     width: 100%;
     object-fit: cover;
 }
+
 /* ========================================= Primary Section Ends ================================  */
 /* ========================================= Nav Section Starts ================================  */
 nav {
@@ -94,10 +107,12 @@ nav {
     top: 0;
     z-index: 10;
 }
+
 nav button {
     display: none;
     cursor: pointer;
 }
+
 .nav-container {
     height: 100%;
     display: flex;
@@ -106,6 +121,7 @@ nav button {
     margin-left: 80px;
     margin-right: 80px;
 }
+
 .avatar {
     width: 2.5rem;
     height: 2.5rem;
@@ -113,19 +129,23 @@ nav button {
     border-radius: 50%;
     border: 0.3rem solid var(--color-bg);
 }
+
 nav .logo {
     font-size: 1.2rem;
     font-weight: 600;
 }
+
 .nav-items {
     display: flex;
     align-items: center;
     gap: 4rem;
 }
+
 .nav-profile {
     position: relative;
     cursor: pointer;
 }
+
 .nav-profile ul {
     position: absolute;
     top: 105%;
@@ -135,16 +155,19 @@ nav .logo {
     background-color: var(--color-gray-900);
     visibility: hidden;
 }
+
 .nav-profile:hover>ul {
     visibility: visible;
     opacity: 1;
 }
+
 .nav-profile ul li a {
     padding: 1rem;
     background-color: var(--color-gray-900);
     display: block;
     width: 100%;
 }
+
 /* ========================================= Nav Section Ends ================================  */
 /* ========================================= Fetured Section Starts ================================  */
 .category-button {
@@ -156,10 +179,12 @@ nav .logo {
     font-weight: 600;
     font-size: 0.8rem;
     text-align: center;
-}form
-.category-button:hover {
+}
+
+form .category-button:hover {
     background-color: var(--color-white);
 }
+
 .post-thumbnail {
     border-radius: var(--card-border-radius-5) 0;
     border: 1rem solid var(--color-gray-900);
@@ -167,37 +192,44 @@ nav .logo {
     margin-bottom: 1.6rem;
     height: fit-content;
 }
+
 .author {
     display: flex;
     gap: 1rem;
     margin-top: 1.2rem;
 }
+
 .post-author-avatar {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: var(--card-border-radius-3);
     overflow: hidden;
 }
+
 .fetured {
     margin-top: 8rem;
 }
+
 .fetured-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
 }
+
 /* ========================================= Fetured Section Ends ================================  */
 /* ========================================= Post Section Starts ================================  */
 .post-info .category-button {
     margin-bottom: 1rem;
 }
+
 .post-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5rem;
     margin-bottom: 5rem;
 }
-.HeaderSign{
+
+.HeaderSign {
     display: inline-block;
     width: fit-content;
     padding: 0.6rem 1.2rem;
@@ -207,17 +239,20 @@ nav .logo {
     color: white;
 
 }
+
 .category-buttons {
     padding: 4rem 0;
     border-top: 2px solid var(--color-gray-900);
     border-bottom: 2px solid var(--color-gray-900);
 }
+
 .container-buttons {
     width: fit-content;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
+
 /* ========================================= Post Section Ends ================================  */
 /* ========================================= foooter Section starts ================================  */
 footer {
@@ -225,6 +260,7 @@ footer {
     padding: 5rem 0 0;
     width: 100vw;
 }
+
 .footer-socials {
     margin-inline: auto;
     width: fit-content;
@@ -233,8 +269,9 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 1.2rem;
-}button
-.footer-socials a {
+}
+
+button .footer-socials a {
     background: var(--color-bg);
     border-radius: 50%;
     width: 2.3rem;
@@ -243,21 +280,26 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
 footer h4 {
     color: var(--color-white);
     margin-bottom: 0.6rem;
 }
+
 footer ul a {
     opacity: 0.70;
 }
+
 .footer-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 3rem;
 }
+
 .search_bar {
     margin-top: 7rem;
 }
+
 .search-container {
     position: relative;
     width: 30rem;
@@ -270,11 +312,13 @@ footer ul a {
     border-radius: var(--card-border-radius-2);
     color: var(--color-gray-300);
 }
+
 .search-container>div {
     width: 100%;
     display: flex;
     align-items: center;
 }
+
 .search-container input {
     margin-left: 1.7rem;
     background: transparent;
@@ -282,6 +326,7 @@ footer ul a {
     width: 100%;
     color: var(--color-white);
 }
+
 .btn {
     display: inline-block;
     width: fit-content;
@@ -291,6 +336,7 @@ footer ul a {
     cursor: pointer;
     color: white;
 }
+
 .btnREd {
     display: inline-block;
     width: fit-content;
@@ -300,6 +346,7 @@ footer ul a {
     cursor: pointer;
     color: white;
 }
+
 .search-container button {
     display: inline-block;
     width: fit-content;
@@ -309,25 +356,31 @@ footer ul a {
     cursor: pointer;
     color: white;
 }
+
 .singlePost {
     margin: 6rem 0 2rem;
 }
+
 .singlePost_container {
     width: 40%;
     background-color: var(--color-gray-900);
     padding: 1rem 2rem 2rem;
 }
+
 .singlepost_thumbnail {
     margin-top: 1.5rem;
 }
+
 .singlePost_container p {
     margin-top: 1rem;
     line-height: 1.7;
 }
+
 .cat-container {
     padding: 2rem 2rem 0 0;
     text-align: center;
 }
+
 .page-head-about {
     background-repeat: no-repeat;
     background-size: cover;
@@ -338,6 +391,7 @@ footer ul a {
     align-items: center;
     padding: 14px;
 }
+
 .about-head {
     display: flex;
     padding: 40px 80px;
@@ -347,23 +401,28 @@ footer ul a {
     border-bottom: 2px solid var(--color-bg);
     padding-bottom: 8rem;
 }
+
 .about-head img {
     width: 50%;
     height: auto;
 }
+
 .formSec {
     display: grid;
     place-items: center;
     height: 100vh;
 }
+
 .sign_container {
     width: var(--form-width);
 }
+
 .alert_message_error {
     padding: 0.8rem 1.4rem;
     margin-bottom: 1rem;
     border-radius: var(--card-border-radius-2);
 }
+
 .alert_message_error_err {
     background-color: var(--color-red-light);
     color: var(--color-red);
@@ -371,6 +430,7 @@ footer ul a {
     margin-bottom: 1rem;
     border-radius: var(--card-border-radius-2);
 }
+
 .alert_message_error_success {
     background-color: var(--color-red-light);
     color: var(--color-green);
@@ -384,11 +444,13 @@ form {
     flex-direction: column;
     gap: 1rem;
 }
+
 .form-controll {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
 }
+
 input,
 textarea,
 select {
@@ -398,13 +460,16 @@ select {
     resize: none;
     color: var(--color-white);
 }
+
 .formSec small {
     margin-top: 0.5rem;
     display: block;
 }
+
 .formSec a {
     color: var(--color-primary);
 }
+
 .formSec button {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -416,10 +481,12 @@ select {
     text-align: center;
     width: fit-content;
 }
+
 select {
     color: rgb(168, 159, 159);
     padding-right: 5px;
 }
+
 .form-details {
     padding: 20px 80px;
     display: flex;
@@ -427,19 +494,23 @@ select {
     margin: 30px;
     padding: 80px;
 }
+
 .form-details form {
     width: 65%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+
 .form-details form span {
     font-size: 12px;
 }
+
 .form-details form h2 {
     font-size: 26px;
     line-height: 35px;
 }
+
 .form-details form input,
 .form-details form textarea {
     width: 100%;
@@ -449,32 +520,38 @@ select {
     margin-bottom: 20px;
     border: 1px solid #ccc6c6;
 }
+
 .form-details form button {
     background-color: #088178;
     color: white;
 }
+
 .form-details .people div {
     padding-bottom: 25px;
     display: flex;
     align-items: flex-start;
 }
+
 .form-details .people div img {
     width: 65px;
     height: 65px;
     object-fit: cover;
     margin-right: 15px;
 }
+
 .form-details .people div p {
     margin: 0;
     font-size: 13px;
     line-height: 25px;
 }
+
 .form-details .people div span {
     display: block;
     font-size: 16px;
     font-weight: 600;
     color: black;
 }
+
 .dashboard_container {
     display: flex;
     background-color: var(--color-gray-900);
@@ -486,6 +563,7 @@ select {
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
 .dashboard_container aside .LIdiff {
     display: flex;
     gap: 1rem;
@@ -497,11 +575,13 @@ select {
     border-bottom: 1px solid black;
     align-items: center;
 }
+
 .dashboard_container aside .LIdiff:hover {
     background-color: transparent;
     transition: var(--transition);
     cursor: pointer;
 }
+
 .manage {
     display: flex;
     gap: 1rem;
@@ -516,6 +596,7 @@ table {
     width: 45rem;
     text-align: left;
 }
+
 .active {
     display: flex;
     gap: 1rem;
@@ -524,34 +605,44 @@ table {
     margin-right: 2rem;
     align-items: center;
     background-color: var(--color-primary);
+    border-bottom: 1px solid black;
 }
+
+
 table th {
     background-color: var(--color-gray-700);
     padding: 0.8rem;
     color: white;
 }
+
 table td {
     padding: 0.8rem;
     border-bottom: 1px solid var(--color-gray-200);
 }
+
 .category .firstButton,
 .secondButton {
     visibility: hidden;
 }
+
 /* ========================================= foooter Section ends ================================  */
 @media screen and (max-width:1024px) {
     .container {
         width: 80%;
     }
+
     h2 {
         font-size: 1.6rem;
     }
+
     h3 {
         font-size: 1.2rem;
     }
+
     h5 {
         font-size: 0.8rem;
     }
+
     nav button {
         display: inline-block;
         font-size: 1.5rem;
@@ -559,12 +650,15 @@ table td {
         color: white;
         background: transparent;
     }
+
     .close-nav {
         display: none;
     }
+
     .nav-container {
         position: relative;
     }
+
     .nav-items {
         position: absolute;
         flex-direction: column;
@@ -576,6 +670,7 @@ table td {
         gap: 0;
         visibility: hidden;
     }
+
     .nav-items li {
         width: 100%;
         height: 4.5rem;
@@ -586,15 +681,18 @@ table td {
         animation: animateDropdown 4s 0s ease forwards;
         opacity: 0;
     }
+
     @keyframes animateDropdown {
         0% {
             transform: rotateX(90deg);
         }
+
         100% {
             transform: rotateX(0deg);
             opacity: 1;
         }
     }
+
     .nav-items li a {
         border-radius: 0;
         width: 100%;
@@ -604,59 +702,74 @@ table td {
         display: flex;
         align-items: center;
     }
+
     .nav-profile ul {
         top: 100%;
         width: 100%;
     }
+
     .nav-profile .avatar {
         margin-left: 2rem;
         border: 0;
     }
+
     .fetured-container {
         gap: 3rem;
         padding: 2rem;
     }
+
     .post-container {
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
         padding: 2rem;
     }
+
     .search-container {
         width: var(--container-width-md);
     }
+
     .footer-container {
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
     }
+
     .formSec {
         padding: 0;
     }
+
     .sign_container {
         width: 50%;
     }
+
     .dashboard_container {
         padding: 0;
         background-color: transparent;
     }
+
     .dashboard_container h5 {
         display: none;
     }
+
     .dashboard_container aside .LIdiff {
         width: 90px;
         justify-content: center;
         gap: 1rem;
     }
+
     .manage {
         width: 90px;
         justify-content: center;
     }
+
     table thead {
         display: none;
     }
+
     table {
         width: 28rem;
     }
 }
+
 @media screen and (max-width:790px) {
     .category .firstButton {
         visibility: visible;
@@ -671,12 +784,15 @@ table td {
         bottom: 4rem;
         font-size: 1rem;
     }
+
     .about-head img {
         width: 70%;
     }
+
     .about-head {
         flex-direction: column;
     }
+
     .categorySecondBtn {
         visibility: visible;
         background-color: var(--color-primary-variant);
@@ -690,96 +806,121 @@ table td {
         bottom: 4rem;
         font-size: 1rem;
     }
+
     .active {
         width: 90px;
     }
+
     .dashboard_container {
         overflow: visible;
         height: auto;
     }
+
     .dashboard_container aside {
         visibility: hidden;
         position: fixed;
         left: 0;
         height: 100vh;
     }
+
     table {
         width: 92vw;
         margin-left: 2rem;
         margin-right: 2rem;
     }
+
     .category h2 {
         text-align: center;
     }
+
     .category table tr {
         display: flex;
         flex-direction: column;
     }
 }
+
 @media screen and (max-width:600px) {
     section {
         margin-top: 2rem;
     }
+
     h1 {
         font-size: 2rem;
     }
+
     .search-container {
         width: 20rem;
     }
+
     .fetured {
         margin-top: 6rem;
     }
+
     .fetured-container {
         grid-template-columns: 1fr;
         gap: 0;
         padding: 3rem;
     }
+
     .post-container {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 3rem;
     }
+
     .container-buttons {
         grid-template-columns: 1fr 1fr;
         padding: 2rem;
     }
+
     footer a {
         font-size: 1rem;
     }
+
     .footer-container {
         padding: 2rem;
     }
+
     .form-details {
         flex-direction: column;
     }
+
     .container {
         width: 100%;
     }
+
     .fetured a,
     footer li a {
         font-size: 1rem;
     }
+
     .form-details form {
         width: 100%;
     }
+
     .search-container {
         width: 60%;
     }
+
     .about-head img {
         width: 100%;
     }
+
     .about-head {
         flex-direction: column;
     }
+
     .singlePost_container {
         background: transparent;
         padding: 0;
         width: 300px;
     }
+
     .sign_container {
         width: 60%;
     }
 }
+
 @media screen and (max-width:450px) {
     table {
         margin: 0;

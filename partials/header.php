@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
                     if (isset($_SESSION["SignIn1"])) {
                         echo '
                             <div class="avatar">
-                            <img width=100 height=100 src="images/' . $row["avatar"] . '" alt="">
+                            <img src="images/' . $row["avatar"] . '" alt="">
                         </div>
                             ';
                     } else {

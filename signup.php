@@ -41,7 +41,7 @@
                     <label for="avatar">User Avatar</label>
                     <input type="file" name="avatarImage" required>
                 </div>
-                <input name="submit" type="submit" class="btn">Sign Up</input>
+                <input name="submit" type="submit" class="btn"></input>
                 <small>Already Have an account? <a href="signIn.php">Login</a></small>
 
             </form>

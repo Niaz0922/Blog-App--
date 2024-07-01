@@ -27,3 +27,4 @@ if (isset($_POST["submit"])) {
         $_SESSION["signInValidation"] = "Wrong Username or password";
     }
 }
+

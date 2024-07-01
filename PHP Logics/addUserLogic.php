@@ -10,14 +10,15 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $createpassword = $_POST["createpassword"];
     $confirmpassword = $_POST["confirmPass"];
-    $avatar = $_FILES['avatarImage'];
+    $avatar = $_FILES['avatar'];
     $sqlExisting = "SELECT * FROM users WHERE username = '$username' OR email = 'email'";
     $result = mysqli_query($conn, $sqlExisting);
+    $isAdmin = $_POST["admin"];
 
     if ($createpassword != $confirmpassword) {
-        $_SESSION["SignUp"] = "Please match the password";
+        $_SESSION["addUser"] = "Please match the password";
     } else if (mysqli_num_rows($result) > 0) {
-        $_SESSION["SignUp"] = "Username Or Email Exist";
+        $_SESSION["addUser"] = "Username Or Email Exist";
     } else {
         $time = time();
         $avatar_name = $time . $avatar["name"];
@@ -32,21 +33,24 @@ if (isset($_POST["submit"])) {
             if ($avatar["size"] < 1000000) {
                 move_uploaded_file($avatar_tmpName, $avatar_destination);
             } else {
-                $_SESSION["SignUp"] = "File is too big";
+                $_SESSION["addUser"] = "File is too big";
             }
         } else {
-            $_SESSION["SignUp"] = "Please enter your file on JPG , PNG or JPEG";
+            $_SESSION["addUser"] = "Please enter your file on JPG , PNG or JPEG";
         }
     }
 }
-if ($_SESSION["SignUp"]) {
-    header("Location: http://localhost/blog/signup.php");
-    $_SESSION["signUpDataBack"] = $_POST;
+if ($_SESSION["addUser"]) {
+    header("Location: http://localhost/blog/admin/addUser.php");
 } else {
-    $InsertData = "INSERT INTO users (firstname,lastname,username,email,password,avatar) VALUES ('$firstname','$lastname','$username','$email','$hashedPass','$avatar_name')";
+    $InsertData = "INSERT INTO users (firstname,lastname,username,email,password,avatar,IsAdmin) VALUES ('$firstname','$lastname','$username','$email','$hashedPass','$avatar_name','$isAdmin')";
     $result = mysqli_query($conn, $InsertData);
     if ($result) {
-        $_SESSION["SignUp"] = "Registration Successfull";
-        header("Location: http://localhost/blog/signin.php");
+        $_SESSION["success"] = "Added user Successfully";
+        header("Location: http://localhost/blog/admin/addUser.php");
     }
 }
+
+
+
+?>

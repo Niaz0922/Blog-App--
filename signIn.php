@@ -23,7 +23,7 @@
             <form action="PHP Logics\signinLogic.php" method="POST">
                 <input type="text" placeholder="Username" name="Username" id="Username" required>
                 <input type="password" placeholder=" Password" name="Pass" id="Pass" required>
-                <input style="cursor: pointer;" type="submit" name = "submit" class="btn">Sign Up</input>
+                <input style="cursor: pointer;" type="submit" name = "submit" class="btn"></input>
                 <small>Don't Have an account? <a href="signup.php">Create</a></small>
             </form>
         </div>
