@@ -35,7 +35,7 @@
                 <div class="post-info">
                     <a href="" class="category-button">Greece</a>
                     <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
+                        <a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
                             excepturi!</a>
                     </h3>
                     <p class="post-body">

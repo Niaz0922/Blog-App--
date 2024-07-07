@@ -1,21 +1,26 @@
 <?php
 session_start();
 include "C:/xampp/htdocs/blog/admin/config/database.php";
+//checking that the user is logged in or not and geting the data from database
 
-if (isset($_SESSION["SignIn1"])) {
+if (isset($_COOKIE["username"])) {
+    $username = $_COOKIE["username"];
+    commonSQl($username,$conn);
+} else{
     $username = $_SESSION["SignIn1"];
+    commonSQl($username,$conn);
+ }
+
+
+function commonSQl($username,$conn){
     $sql = "SELECT *FROM users WHERE username = '$username'";
     $result = $conn->query($sql);
     if ($result) {
-        $row = $result->fetch_assoc();
+         $GLOBALS['row'] = $result->fetch_assoc();
     }
 }
 
-if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
-    if ($row["IsAdmin"] == 1) {
-        header("Location:http://localhost/blog/admin/dashboard.php");
-    }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,16 +39,17 @@ if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
         <div class="contianer nav-container">
             <a href="index.php" class="logo">EGATOR</a>
             <ul class="nav-items">
-                <li><a href="../blog.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="service.php">Services</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="http://localhost/blog/">Home</a></li>
+                <li><a href="http://localhost/blog/about.php">About</a></li>
+                <li><a href="http://localhost/blog/service.php">Services</a></li>
+                <li><a href="http://localhost/blog/contact.php">Contact</a></li>
                 <li class="nav-profile">
                     <?php
-                    if (isset($_SESSION["SignIn1"])) {
+                    //checking that the user is logged in or not
+                    if (isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])){
                         echo '
                             <div class="avatar">
-                            <img src="images/' . $row["avatar"] . '" alt="">
+                            <img src="http://localhost/blog/images/' . $row["avatar"] . '" alt="">
                         </div>
                             ';
                     } else {
@@ -54,12 +60,17 @@ if ($_SERVER['REQUEST_URI'] == "blog/admin/dashboard.php") {
 
                     <ul>
                         <?php
-                        if (isset($_SESSION["SignIn1"])) {
-                            echo '<li><a href="admin/dashboard.php">Dahshboard</a></li>';
+                        if (isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) {
+                            echo '<li><a href="http://localhost/blog/admin/dashboard.php">Dahshboard</a></li>';
+                            echo ' <li><a href="http://localhost/blog/profile.php">Profile</a></li>';
+                            echo ' <li><a href="http://localhost/blog/partials/logout.php">Logout</a></li>';
+
+                            //Checking that the user is admin or author
                             if ($row["IsAdmin"] == 1) {
                                 $_SESSION["admin"] = "Admin";
+                            }else{
+                                unset($_SESSION["admin"]);
                             }
-                            echo ' <li><a href="partials\logout.php">Logout</a></li>';
                         }
                         ?>
                     </ul>

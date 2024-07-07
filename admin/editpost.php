@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <?php
+    include "../adminCheck.php";
+
+    
+    ?>
     <section class="formSec">
         <div class="container sign_container">
             <h2>Edit Post</h2>

@@ -10,7 +10,7 @@
 <body>
     <section class="formSec">
         <div class="container sign_container">
-            <h2>Sign Up</h2>
+            <h2>Sign In</h2>
             <?php if(isset($_SESSION["signInValidation"])) : ?>
             <div class="alert_message_error_err">
                 <P>
@@ -23,6 +23,10 @@
             <form action="PHP Logics\signinLogic.php" method="POST">
                 <input type="text" placeholder="Username" name="Username" id="Username" required>
                 <input type="password" placeholder=" Password" name="Pass" id="Pass" required>
+                <div class="remeberMeSection">
+                    <input type="checkbox" id="remember" name="remember" value="remember">
+                    <label for="Remember ME">Remember Me</label><br>
+                </div>
                 <input style="cursor: pointer;" type="submit" name = "submit" class="btn"></input>
                 <small>Don't Have an account? <a href="signup.php">Create</a></small>
             </form>

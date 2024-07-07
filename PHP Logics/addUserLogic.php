@@ -47,7 +47,7 @@ if ($_SESSION["addUser"]) {
     $result = mysqli_query($conn, $InsertData);
     if ($result) {
         $_SESSION["success"] = "Added user Successfully";
-        header("Location: http://localhost/blog/admin/addUser.php");
+        header("Location: http://localhost/blog/admin/manageUser.php");
     }
 }
 

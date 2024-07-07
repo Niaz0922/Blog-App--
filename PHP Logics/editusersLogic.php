@@ -9,9 +9,9 @@ if(isset($_POST["submit"])){
     $username = $_POST["username"];
     $email = $_POST["email"];
     $isAdmin = $_POST["isadmin"];
-    $Dbuser = $_POST["Dbusername"];
+    $DbuserID = $_POST["Dbusername"];
 
-    $sql = "UPDATE `users` SET `firstname` = '$firstname' , `lastname` = '$lastname' , `username` = '$username' , `email` = '$email' , `IsAdmin` = '$isAdmin'   WHERE `users`.`username` = '$Dbuser';";
+    $sql = "UPDATE `users` SET `firstname` = '$firstname' , `lastname` = '$lastname' , `username` = '$username' , `email` = '$email' , `IsAdmin` = '$isAdmin'   WHERE `users`.`id` = '$DbuserID';";
     $result = mysqli_query($conn,$sql);
     if($result){
         $_SESSION["editUserSuccess"] = true;

@@ -625,6 +625,31 @@ table td {
     visibility: hidden;
 }
 
+.user-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #2d2b7c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_section {
+    background-color: #5854c7;
+    text-align: center;
+    padding: 40px 90px;
+    color: white;
+}
+.userPost{
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.userPost p{
+    color: red;
+    text-decoration: underline;
+}
+
 /* ========================================= foooter Section ends ================================  */
 @media screen and (max-width:1024px) {
     .container {
@@ -761,13 +786,7 @@ table td {
         justify-content: center;
     }
 
-    table thead {
-        display: none;
-    }
-
-    table {
-        width: 28rem;
-    }
+    
 }
 
 @media screen and (max-width:790px) {
@@ -824,7 +843,7 @@ table td {
     }
 
     table {
-        width: 92vw;
+        width: 72vw;
         margin-left: 2rem;
         margin-right: 2rem;
     }
@@ -833,10 +852,7 @@ table td {
         text-align: center;
     }
 
-    .category table tr {
-        display: flex;
-        flex-direction: column;
-    }
+    
 }
 
 @media screen and (max-width:600px) {
@@ -924,5 +940,11 @@ table td {
 @media screen and (max-width:450px) {
     table {
         margin: 0;
+    }
+}
+
+@media screen and (max-width:590px) {
+    table{
+        overflow-x: scroll;
     }
 }

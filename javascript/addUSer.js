@@ -1,9 +1,6 @@
 var openNav = document.querySelector(".open-nav");
 var nav = document.querySelector(".nav-items");
 var closeNav = document.querySelector(".close-nav");
-var editUser = document.querySelectorAll("#editUser");
-var input = document.querySelector("#sno");
-var deleteUser = document.querySelectorAll(".btnREd");
 openNav.addEventListener("click", OpenHamburgerMenu);
 function OpenHamburgerMenu() {
     nav.style.visibility = "visible";
@@ -30,26 +27,9 @@ rightbtn.addEventListener("click", function () {
 });
 
 
-editUser.forEach(function(e){
-    e.addEventListener("click",username);
-})
 
-function username(event){
-    var td = event.target.parentElement;
-    var username =  td.parentElement;
-    var result =  username.querySelector(".username");
-    sno.value = result.innerHTML;
-    localStorage.setItem("username",sno.value);
-}
-deleteUser.forEach(function(ev){
-    ev.addEventListener("click",usernameDel);
-})
 
-function usernameDel(event){
-    var td = event.target.parentElement;
-    console.log(td.parentElement);
 
-}
 
 
 

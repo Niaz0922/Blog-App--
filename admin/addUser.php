@@ -11,11 +11,14 @@ session_start();
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <?php
+    include "../adminCheck.php";
+    ?>
     <section class="formSec">
         <div class="container sign_container">
             <h2>Add User</h2>
             <?php if(isset($_SESSION["addUser"])) : ?>
-            <div class=".alert_message_error_err">
+            <div class="alert_message_error_err">
                 <P>
                     <?= $_SESSION["addUser"];
                     unset($_SESSION["addUser"]);

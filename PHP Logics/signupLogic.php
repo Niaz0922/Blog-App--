@@ -2,7 +2,6 @@
 include "../admin\config\database.php";
 session_start();
 
-
 if (isset($_POST["submit"])) {
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
@@ -24,15 +23,19 @@ if (isset($_POST["submit"])) {
         $avName = $avatar["name"];
         $avatar_destination = "../images/" . $avatar_name;
         $avatar_tmpName = $avatar["tmp_name"];
+        $ImageSize = getimagesize($avatar_tmpName);
+        $imageWidth = $ImageSize[0];
+        $imageheight = $ImageSize[1];
+        $_SESSION["test"] = $imageWidth;
         $allowedExtention = ["jpg", "png", "jpeg"];
         $extention = explode(".", $avatar["name"]);
         $extention = end($extention);
         $hashedPass = password_hash($createpassword, PASSWORD_DEFAULT);
         if (in_array($extention, $allowedExtention)) {
-            if ($avatar["size"] < 1000000) {
+            if ($avatar["size"] < 1000000  && $imageWidth < 2000 && $imageheight < 2000 ) {
                 move_uploaded_file($avatar_tmpName, $avatar_destination);
             } else {
-                $_SESSION["SignUp"] = "File is too big";
+                $_SESSION["SignUp"] = "File is too big . Reduce the file size and image Size";
             }
         } else {
             $_SESSION["SignUp"] = "Please enter your file on JPG , PNG or JPEG";

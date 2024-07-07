@@ -10,7 +10,9 @@
 </head>
 <body>
 <?php
-    include "partial/header.php"
+    include "../partials/header.php";
+    include "../adminCheck.php";
+
   
   ?>
     <section class="dashboard">

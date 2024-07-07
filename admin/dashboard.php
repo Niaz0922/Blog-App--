@@ -8,8 +8,10 @@
     <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php
-include "partial\header.php";
+
+<?php session_start(); if(isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) : ?>
+    <?php
+include "../partials/header.php";
 
 ?>
     <section class="dashboard">
@@ -118,5 +120,14 @@ include "partial\header.php";
         </div>
     </footer>
     <script src="../javascript/main.js"></script>
+    <?php else:?>
+        <script>
+            alert("You are not an admin");
+            location.href = "http://localhost/blog/";
+        </script>
+        </body>
+    <?php endif?>
+   
+
+    
         
-</body>

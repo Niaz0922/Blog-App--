@@ -1,4 +1,16 @@
-<?php include "partial/header.php" ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niaz Blog</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<?php include "../partials/header.php";
+include "../adminCheck.php";
+ ?>
     <section class="dashboard">
         <div class="container dashboard_container">
         <?php
@@ -14,7 +26,8 @@
                 <button class="secondButton"><i class="fa-solid fa-arrow-right"></i></button>
                 <h2>Manage Users</h2>
                 <table>
-                <thead><input type="hidden" name="sno" id="sno">
+                <thead>
+                    <input type="hidden" name="sno" id="sno">
                             <tr>
                                 <th>Name</th>
                                 <th>Username</th>
@@ -23,6 +36,7 @@
                                 <th>Admin</th>
                             </tr>
                     <?php
+                        //Fetching the data from database
                         $sql = "SELECT *FROM users";
                         $result = mysqli_query($conn,$sql);
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -38,8 +52,8 @@
                         <tr>
                             <td>'.$row["firstname"].'</td>
                             <td class="username">'.$row["username"].'</td>
-                            <td><a href="edituser.php" target="_blank" class="btn" id="editUser">Edit</a></td>
-                            <td><a href="#" class="btnREd">Delete</a></td>
+                            <td><a href="http://localhost/blog/admin/edituser.php?id='.$row["id"] .'" target="_blank" class="btn" id="editUser">Edit</a></td>
+                            <td><a href="http://localhost/blog/PHP Logics/EditUserDelete.php?id='.$row["id"] . '" class="btnREd">Delete</a></td>
                             <td>'. $admin .'</td>
                         </tr>
                     </tbody>
