@@ -37,7 +37,7 @@ function commonSQl($username,$conn){
     <nav>
 
         <div class="contianer nav-container">
-            <a href="index.php" class="logo">EGATOR</a>
+            <a href="http://localhost/blog/index.php" class="logo">EGATOR</a>
             <ul class="nav-items">
                 <li><a href="http://localhost/blog/blog.php">Blog</a></li>
                 <li><a href="http://localhost/blog/about.php">About</a></li>
@@ -82,3 +82,5 @@ function commonSQl($username,$conn){
             <button class="close-nav"><i class="fa-solid fa-xmark"></i></button>
         </div>
     </nav>
+
+  

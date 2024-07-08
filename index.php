@@ -11,7 +11,9 @@
 <body>
     <?php
     include "partials/header.php";
-    
+    //retriving the categories from database 
+    $sql = "SELECT *FROM categories";
+    $result = $conn->query($sql);
     ?>
     <!-- ========================================= Fetured Section Starts ================================ -->
     <section class="fetured">
@@ -225,13 +227,10 @@
     <!-- ========================================= Category Buttons Section Starts ========================-->
     <section class="category-buttons">
         <div class="container container-buttons">
-            <a href="" class="category-button">Greece</a>
-            <a href="" class="category-button">Wild Life</a>
-            <a href="" class="category-button">Coding</a>
-            <a href="" class="category-button">App Devolopment</a>
-            <a href="" class="category-button">Web Devolopment</a>
-            <a href="" class="category-button">Graphics Designing</a>
-        </div>
+            <!-- fetching the data from categories table -->
+            <?php while($row = mysqli_fetch_assoc($result)){?>
+            <a href="" class="category-button"><?php echo $row["title"] ?></a>
+           <?php } ?>
     </section>
     <!-- ========================================= Category Buttons Ends ================================ -->
     <!-- ========================================= Foooter starts ================================ -->

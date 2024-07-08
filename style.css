@@ -434,11 +434,20 @@ Single post container section */
 }
 
 .alert_message_error_success {
-    background-color: var(--color-red-light);
+    background-color: var(--color-green-light);
     color: var(--color-green);
     padding: 0.8rem 1.4rem;
     margin-bottom: 1rem;
     border-radius: var(--card-border-radius-2);
+}
+.alignment{
+    position: absolute;
+    top: 95px;
+    width: var(--container-width-lg);
+    max-width: 1800px;
+    margin-inline: auto;
+    left: 177px;
+    border-radius: 0px;
 }
 
 form {
@@ -558,7 +567,7 @@ select {
     display: flex;
     background-color: var(--color-gray-900);
     padding: 2rem;
-    margin-top: 7rem;
+    margin-top: 9.5rem;
     margin-bottom: 5rem;
     align-items: self-start;
     height: 30rem;
@@ -831,7 +840,7 @@ table td {
     .active {
         width: 90px;
         justify-content: center;
-    }
+    }alert_message_error_err
 
     .dashboard_container {
         overflow: visible;

@@ -11,11 +11,14 @@
 <body>
 <?php
     include "../partials/header.php";
-    include "../adminCheck.php";
-
+    include "config\database.php";
+    //fetching the data from database
+    $sql = "SELECT *FROM categories";
+    $result = $conn->query($sql);
   
   ?>
     <section class="dashboard">
+        <?php include "../PHP Logics/ShowingSuccessMSG.php"?>
         <div class="container dashboard_container">
         <?php
             include "partial/dashboardPartial.php"
@@ -33,36 +36,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php while($row = mysqli_fetch_assoc($result)){ ?>
                         <tr>
-                            <td>Art</td>
-                            <td><a href="edit_category.html" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
+                            <td><?php echo $row["title"] ?></td>
+                            <td><a href="http://localhost/blog/admin/edit_category.php?id=<?php echo $row["id"] ?>"  class="btn">Edit</a></td>
+                            <td><a href="http://localhost/blog/PHP Logics/deleteCatLogic.php?id=<?php echo $row["id"] ?>" class="btnREd">Delete</a></td>
                         </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td><a href="edit_category.html" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td><a href="edit_category.html" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td><a href="edit_category.html" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td><a href="edit_category.html" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td><a href="edit_category.html" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                        </tr>
+                        <?php }?>
                     </tbody>
                 </table>
             </div>
@@ -70,7 +50,7 @@
         </setion>
         <!-- ========================================= Foooter starts ================================ -->
         <?php
-    include "../partial/footer.php"
+    include "../partials/footer.php"
   
   ?>
    
