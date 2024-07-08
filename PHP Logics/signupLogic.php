@@ -18,18 +18,7 @@ if (isset($_POST["submit"])) {
     } else if (mysqli_num_rows($result) > 0) {
         $_SESSION["SignUp"] = "Username Or Email Exist";
     } else {
-        $time = time();
-        $avatar_name = $time . $avatar["name"];
-        $avName = $avatar["name"];
-        $avatar_destination = "../images/" . $avatar_name;
-        $avatar_tmpName = $avatar["tmp_name"];
-        $ImageSize = getimagesize($avatar_tmpName);
-        $imageWidth = $ImageSize[0];
-        $imageheight = $ImageSize[1];
-        $_SESSION["test"] = $imageWidth;
-        $allowedExtention = ["jpg", "png", "jpeg"];
-        $extention = explode(".", $avatar["name"]);
-        $extention = end($extention);
+       include "validatingFile.php";
         $hashedPass = password_hash($createpassword, PASSWORD_DEFAULT);
         if (in_array($extention, $allowedExtention)) {
             if ($avatar["size"] < 1000000  && $imageWidth < 2000 && $imageheight < 2000 ) {

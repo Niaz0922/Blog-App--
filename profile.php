@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
 </body>
 </html>
 <?php
+// Including the header partials and checking that the user is admin or not
 include "partials\header.php";
 if($row["IsAdmin"] == 1){
     $adminIS = "Admin";
@@ -20,15 +20,7 @@ if($row["IsAdmin"] == 1){
 ?>
 
 
-<div class="user-container">
-    <div class="profile_section">
-        <img src="images/<?php echo $row["avatar"] ?>" alt="" class="userImage">
-        <h3><?php echo $username ?></h3>
-        <p><?php echo $row["email"] ?></p>
-        <p>You have <?php ?>posts </p>
-        <p> You are a <?php echo $adminIS ?></p>
-    </div>
-</div>
+
 
 
 <?php

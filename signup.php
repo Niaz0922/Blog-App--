@@ -31,10 +31,10 @@
             </div>
             <?php endif ?>
              <form action="PHP Logics\signupLogic.php" method="POST" enctype="multipart/form-data"> 
-                <input type="text" placeholder="Firstname" value="<?php echo $firstname ?>" name="firstname" id="firstname" required>
-                <input type="text" placeholder="Lastname" value="<?php echo $lastname ?>" name="lastname" id="lastname" required>
-                <input type="text" placeholder="Username" value="<?php echo $username ?>" name="username" id="username" required>
-                <input type="email" placeholder="Email" value="<?php echo $email ?>" name="email" id="email" required>
+                <input type="text" placeholder="Firstname" value="<?php echo $firstname ?>" name="firstname" id="firstname" required maxlength="30">
+                <input type="text" placeholder="Lastname" value="<?php echo $lastname ?>" name="lastname" id="lastname" required maxlength="30">
+                <input type="text" placeholder="Username" value="<?php echo $username ?>" name="username" id="username" required maxlength="30">
+                <input type="email" placeholder="Email" value="<?php echo $email ?>" name="email" id="email" required maxlength="30">
                 <input type="password" placeholder="Createpassword" value="<?php echo $createpassword ?>" name="createpassword" id="createpassword" required minlength="8">
                 <input type="password" placeholder="Confirm Password" value="<?php echo $confirmpassword ?>" name="confirmPass" id="confirmPass" required minlength="8">
                 <div class="form-controll">

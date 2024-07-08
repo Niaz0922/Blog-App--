@@ -8,10 +8,10 @@
     <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<?php session_start(); if(isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) : ?>
+<?php include "../partials/header.php";?>
+<?php if(isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) : ?>
     <?php
-include "../partials/header.php";
+
 
 ?>
     <section class="dashboard">

@@ -10,27 +10,28 @@
     <?php
     
     include "../adminCheck.php";
+    session_start();
     ?>
     <section class="formSec">
         <div class="container sign_container">
-            <h2>Add Category</h2>
-            <div class="alert_message_error err">
-                <P>This is error</P>
+            <h2><?php $_SESSION["categoryFailed"] ?></h2>
+            <?php if(isset($_SESSION["categoryFailed"])) : ?>
+            <div class="alert_message_error_err">
+                <P>
+                    <?= $_SESSION["categoryFailed"];
+                    unset($_SESSION["categoryFailed"]);
+                    ?>
+                </P>
             </div>
-            <form action="" method="POST">
+            <?php endif ?>
+            <form action="../PHP Logics/addCategoryLogic.php" method="POST" enctype="multipart/form-data">
                 <input type="text" placeholder="Title" name="Title" id="Title" required>
-                <select name="" id="" required>
-                    <option value="1">Travel</option>
-                    <option value="1">Art</option>
-                    <option value="1">Science and Technology</option>
-                    <option value="1">Coding</option>
-                </select>
                 <textarea name="PostBody" id="" rows="4" required></textarea>
                 <div class="form-controll">
                     <label for="thumbnail">Add thumbnail</label>
                     <input type="file" id="thumbnail" name="thumbnail">
                 </div>
-                <button style="cursor: pointer;" type="submit" class="btn">Add Category</button>
+                <input style="cursor: pointer;" type="submit" name="submit" class="btn"></input>
             </form>
         </div>
     </section>

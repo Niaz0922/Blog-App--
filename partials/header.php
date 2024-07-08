@@ -11,7 +11,7 @@ if (isset($_COOKIE["username"])) {
     commonSQl($username,$conn);
  }
 
-
+//getting the user information
 function commonSQl($username,$conn){
     $sql = "SELECT *FROM users WHERE username = '$username'";
     $result = $conn->query($sql);
@@ -39,7 +39,7 @@ function commonSQl($username,$conn){
         <div class="contianer nav-container">
             <a href="index.php" class="logo">EGATOR</a>
             <ul class="nav-items">
-                <li><a href="http://localhost/blog/">Home</a></li>
+                <li><a href="http://localhost/blog/blog.php">Blog</a></li>
                 <li><a href="http://localhost/blog/about.php">About</a></li>
                 <li><a href="http://localhost/blog/service.php">Services</a></li>
                 <li><a href="http://localhost/blog/contact.php">Contact</a></li>
@@ -60,6 +60,7 @@ function commonSQl($username,$conn){
 
                     <ul>
                         <?php
+                        //checking that the user is logged in or not
                         if (isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) {
                             echo '<li><a href="http://localhost/blog/admin/dashboard.php">Dahshboard</a></li>';
                             echo ' <li><a href="http://localhost/blog/profile.php">Profile</a></li>';

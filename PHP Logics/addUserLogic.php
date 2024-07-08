@@ -2,8 +2,9 @@
 include "../admin\config\database.php";
 session_start();
 
-
+//checking that the button is clicked or not
 if (isset($_POST["submit"])) {
+    //getting the user input
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
     $username = $_POST["username"];
@@ -14,20 +15,14 @@ if (isset($_POST["submit"])) {
     $sqlExisting = "SELECT * FROM users WHERE username = '$username' OR email = 'email'";
     $result = mysqli_query($conn, $sqlExisting);
     $isAdmin = $_POST["admin"];
-
+    //checking that the password is matching or not
     if ($createpassword != $confirmpassword) {
         $_SESSION["addUser"] = "Please match the password";
     } else if (mysqli_num_rows($result) > 0) {
         $_SESSION["addUser"] = "Username Or Email Exist";
     } else {
-        $time = time();
-        $avatar_name = $time . $avatar["name"];
-        $avName = $avatar["name"];
-        $avatar_destination = "../images/" . $avatar_name;
-        $avatar_tmpName = $avatar["tmp_name"];
-        $allowedExtention = ["jpg", "png", "jpeg"];
-        $extention = explode(".", $avatar["name"]);
-        $extention = end($extention);
+        //validating the user profile picture
+        include "validatingFile.php";
         $hashedPass = password_hash($createpassword, PASSWORD_DEFAULT);
         if (in_array($extention, $allowedExtention)) {
             if ($avatar["size"] < 1000000) {
@@ -43,6 +38,7 @@ if (isset($_POST["submit"])) {
 if ($_SESSION["addUser"]) {
     header("Location: http://localhost/blog/admin/addUser.php");
 } else {
+    //after checking all the inputs inserting the data 
     $InsertData = "INSERT INTO users (firstname,lastname,username,email,password,avatar,IsAdmin) VALUES ('$firstname','$lastname','$username','$email','$hashedPass','$avatar_name','$isAdmin')";
     $result = mysqli_query($conn, $InsertData);
     if ($result) {

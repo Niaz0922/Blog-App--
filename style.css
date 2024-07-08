@@ -356,7 +356,8 @@ footer ul a {
     cursor: pointer;
     color: white;
 }
-
+/* 
+Single post container section */
 .singlePost {
     margin: 6rem 0 2rem;
 }
@@ -380,6 +381,7 @@ footer ul a {
     padding: 2rem 2rem 0 0;
     text-align: center;
 }
+
 
 .page-head-about {
     background-repeat: no-repeat;
@@ -828,6 +830,7 @@ table td {
 
     .active {
         width: 90px;
+        justify-content: center;
     }
 
     .dashboard_container {
@@ -851,6 +854,7 @@ table td {
     .category h2 {
         text-align: center;
     }
+     
 
     
 }
@@ -948,3 +952,9 @@ table td {
         overflow-x: scroll;
     }
 }
+
+
+
+
+
+

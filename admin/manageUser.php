@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php include "../partials/header.php";
-include "../adminCheck.php";
+
  ?>
     <section class="dashboard">
         <div class="container dashboard_container">
