@@ -448,6 +448,16 @@ Single post container section */
     margin-inline: auto;
     left: 177px;
     border-radius: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.close{
+    background-color: transparent;
+    cursor: pointer;
+    color:#00c476;
+}
+.close i{
+    font-size: 14px;
 }
 
 form {
@@ -970,7 +980,13 @@ table td {
 }
 
 
+alert_message_error_success
+@media screen and (max-width:530px) {
+    .category{
+        overflow-y: scroll;
+    }
 
+}
 
 
 

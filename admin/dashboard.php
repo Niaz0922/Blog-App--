@@ -33,6 +33,9 @@
                 <button class="firstButton"><i class="fa-solid fa-arrow-left"></i></button>
                 <button class="secondButton"><i class="fa-solid fa-arrow-right"></i></button>
                 <h2>Manage Posts</h2>
+                <?php
+                    include "../PHP Logics/postEditSuccessmsg.php";
+             ?>
                 <table>
                     <thead>   
                         <tr>
@@ -60,13 +63,18 @@
                             if($Isadmin){
                                 while($rowPost = mysqli_fetch_array($result)){
                                     CheckingPostIsfetured($rowPost);
-                                   
+                                    //fetching the category title according the the post category id
+                                    $categoryId = $rowPost["category_id"];
+                                    $categorySQL = "SELECT *FROM categories WHERE id = '$categoryId'";
+                                    $cateGoryResult = mysqli_query($conn,$categorySQL);
+                                    $categoryTitle = mysqli_fetch_assoc($cateGoryResult);
+                                   //fetching the post
                                 echo '
                                 <tr>
                                     <td>'.$rowPost["title"].'</td>
-                                    <td>Category</td>
-                                    <td><a href="http://localhost/blog/admin/editpost.php?id='.$row["id"].'" target="_blank" class="btn">Edit</a></td>
-                                    <td><a href="" class="btnREd">Delete</a></td>
+                                    <td>'. $categoryTitle["title"] .'</td>
+                                    <td><a href="http://localhost/blog/admin/editpost.php?id='.$rowPost["id"].'" class="btn">Edit</a></td>
+                                    <td><a href="http://localhost/blog/PHP Logics/deletePost.php?id='.$rowPost["id"].'" class="btnREd">Delete</a></td>
                                     <td>'.$isfeturedAdmin.'</td>
                                 </tr>
                                 ';
@@ -85,8 +93,8 @@
                                     <tr>
                                         <td>'.$rowNoAdmin["title"].'</td>
                                         <td>Category</td>
-                                        <td><a href="http://localhost/blog/admin/editpost.php?id='.$row["id"].'" target="_blank" class="btn">Edit</a></td>
-                                        <td><a href="" class="btnREd">Delete</a></td>
+                                        <td><a href="http://localhost/blog/admin/editpost.php?id='.$rowNoAdmin["id"].' class="btn">Edit</a></td>
+                                        <td><a href="http://localhost/blog/PHP Logics/deletePost.php?id='.$rowNoAdmin["id"].'" class="btnREd">Delete</a></td>
                                         <td>'.$isfeturedAdmin.'</td>
                                     </tr>
                                     ';
