@@ -5,18 +5,19 @@ include "../admin\config\database.php";
 
 
 if (isset($_POST["submit"])) {
-    $username = $_POST["Username"];
-    $password = $_POST["Pass"];
-    $rememberMe =$_POST["remember"];
+    //some security steps
+    $username = stripcslashes($_POST["Username"]);
+    $password = stripcslashes($_POST["Pass"]);
+    $username = mysqli_real_escape_string($conn,$username);
+    $password = mysqli_real_escape_string($conn,$password);
+    //matching the username and passwords
+    $rememberMe = $_POST["remember"];
     $UserQuery = "SELECT * FROM users WHERE username = '$username'";
     $passwordQuery = "SELECT * FROM users WHERE password = '$password'";
 
     $UsernameResult = mysqli_query($conn, $UserQuery);
     $passwordResult = mysqli_query($conn, $passwordQuery);
-    if($rememberMe){
-       
-    }
-
+    
     if (mysqli_num_rows($UsernameResult) == 1) {
         $sql = "SELECT *FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);

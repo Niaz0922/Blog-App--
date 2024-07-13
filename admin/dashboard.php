@@ -8,9 +8,19 @@
     <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php include "../partials/header.php";?>
-<?php if(isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) : ?>
+
     <?php
+    include "../partials/header.php";
+    include "config/database.php";
+    $sql = "SELECT *FROM posts";
+    $result = mysqli_query($conn, $sql);
+
+    //checking that the user is admin or not
+    if(isset($_SESSION["admin"])){
+        $Isadmin = true;
+    }else{
+        $Isadmin = false;
+    }
 
 
 ?>
@@ -24,44 +34,78 @@
                 <button class="secondButton"><i class="fa-solid fa-arrow-right"></i></button>
                 <h2>Manage Posts</h2>
                 <table>
-                    <thead>
+                    <thead>   
                         <tr>
                             <th>Title</th>
-                            <th>Category</th>
+                            <th>Description</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                            <th>Admin</th>
+                            <th>Fetured</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Art</td>
-                            <td>Art</td>
-                            <td><a href="edit_category.php" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                            <td>Art</td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td>Art</td>
-                            <td><a href="edit_category.php" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                            <td>Art</td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td>Art</td>
-                            <td><a href="edit_category.php" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                            <td>Art</td>
-                        </tr>
-                        <tr>
-                            <td>Art</td>
-                            <td>Art</td>
-                            <td><a href="edit_category.php" class="btn">Edit</a></td>
-                            <td><a href="" class="btnREd">Delete</a></td>
-                            <td>Art</td>
-                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            //checking that the blog is fetured or not
+                            function CheckingPostIsfetured($rowPost){
+                                switch($rowPost["isFetured"]){
+                                    case $rowPost == 0:
+                                        $GLOBALS['isfeturedAdmin'] = "No";
+                                       break;
+                                  default:
+                                   $GLOBALS['isfeturedAdmin'] = "Yes";
+                                   break;
+                                }
+                            }
+                            
+                            if($Isadmin){
+                                while($rowPost = mysqli_fetch_array($result)){
+                                    CheckingPostIsfetured($rowPost);
+                                   
+                                echo '
+                                <tr>
+                                    <td>'.$rowPost["title"].'</td>
+                                    <td>Category</td>
+                                    <td><a href="http://localhost/blog/admin/editpost.php?id='.$row["id"].'" target="_blank" class="btn">Edit</a></td>
+                                    <td><a href="" class="btnREd">Delete</a></td>
+                                    <td>'.$isfeturedAdmin.'</td>
+                                </tr>
+                                ';
+                                }
+                            }else{
+                                $currentUserId = $row["id"];
+                                $sql = "SELECT *FROM posts WHERE userId = '$currentUserId'";
+                                $resultPost = mysqli_query($conn,$sql);
+                                if(mysqli_num_rows($resultPost) == 0){
+                                    echo '<script>alert("You Have No Posts")</script>';
+                                }else{
+                                    while($rowNoAdmin = mysqli_fetch_array($resultPost)){
+                                        CheckingPostIsfetured($rowNoAdmin);
+                                       
+                                    echo '
+                                    <tr>
+                                        <td>'.$rowNoAdmin["title"].'</td>
+                                        <td>Category</td>
+                                        <td><a href="http://localhost/blog/admin/editpost.php?id='.$row["id"].'" target="_blank" class="btn">Edit</a></td>
+                                        <td><a href="" class="btnREd">Delete</a></td>
+                                        <td>'.$isfeturedAdmin.'</td>
+                                    </tr>
+                                    ';
+                                    }
+
+                                }
+
+
+                            }
+
+                                    
+                            
+                        
+                            
+                               
+                                    
+                       
+                                
+                            ?>
                     </tbody>
                 </table>
             </div>
@@ -120,13 +164,6 @@
         </div>
     </footer>
     <script src="../javascript/main.js"></script>
-    <?php else:?>
-        <script>
-            alert("You are not an admin");
-            location.href = "http://localhost/blog/";
-        </script>
-        </body>
-    <?php endif?>
    
 
     

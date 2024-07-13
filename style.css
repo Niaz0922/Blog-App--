@@ -529,7 +529,6 @@ select {
     padding: 12px 15px;
     outline: none;
     margin-bottom: 20px;
-    border: 1px solid #ccc6c6;
 }
 
 .form-details form button {
@@ -562,7 +561,6 @@ select {
     font-weight: 600;
     color: black;
 }
-
 .dashboard_container {
     display: flex;
     background-color: var(--color-gray-900);
@@ -659,6 +657,15 @@ table td {
 .userPost p{
     color: red;
     text-decoration: underline;
+    margin-left: 3px;
+}
+.manageBTN{
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    color: white;
 }
 
 /* ========================================= foooter Section ends ================================  */

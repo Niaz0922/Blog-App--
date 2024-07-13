@@ -5,8 +5,8 @@ include "../admin/config/database.php";
 session_start();
 
     if(isset($_POST["submit"])){
-        $title = $_POST["Title"];
-        $desc = $_POST["PostBody"];
+        $title = stripslashes($_POST["Title"]);
+        $desc = stripslashes($_POST["PostBody"]);
 
         $sql = "INSERT INTO categories (title,description) VALUES ('$title','$desc')";
         $result = mysqli_query($conn,$sql);

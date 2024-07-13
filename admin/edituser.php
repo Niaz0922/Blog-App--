@@ -26,7 +26,7 @@
     <section class="formSec">
         <div class="container sign_container">
         <h2>Edit User</h2>
-        <h3 class="userPost"></h3>
+        <h3 class="userPost"><?php echo ' Yuo are editing the user called <p>' .$row["username"] .'</p>  ' ?></h3>
             <form action="../PHP Logics\editusersLogic.php" method="POST">
                 <input type="text" placeholder="Firstname" name="firstname" id="firstname" value="<?php echo $row["firstname"] ?>" required>
                 <input type="text" placeholder="Lastname" name="lastname" id="lastname" value="<?php echo $row["lastname"] ?>"  required>
@@ -44,9 +44,5 @@
  
     </section>
     <script src="../javascript/edituser.js"></script>
-    <script>
-        var usernameLocalstorage = localStorage.getItem("username");
-        document.querySelector(".formSec .sign_container .userPost").innerHTML = `The user you are editing is   <p> ${usernameLocalstorage} <p>`;
-    </script>
 </body>
 </html>

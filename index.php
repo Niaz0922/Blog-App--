@@ -11,7 +11,8 @@
 <body>
     <?php
     include "partials/header.php";
-    //retriving the categories from database 
+    //retriving the categories from database
+    include "admin/config/database.php"; 
     $sql = "SELECT *FROM categories";
     $result = $conn->query($sql);
     ?>

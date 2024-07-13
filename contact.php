@@ -23,7 +23,7 @@
             <input type="text" placeholder="Your Subject" name="subject">
             <textarea name="textarea" placeholder="Your Message" id="" cols="30" rows="10">
             </textarea>
-            <button class="normal" name="submit">Submit</button>
+            <input class="btn manageBTN" name="submit" type="Submit"></input>
         </form>
         <div class="people">
             <div>
