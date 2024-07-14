@@ -3,9 +3,9 @@ include "../admin/config/database.php";
 session_start();
 if (isset($_POST["submit"])) {
     //geting the inputs
-    $title = stripslashes($_POST["Title"]);
+    $title = $_POST["Title"];
     $desc = $_POST["desc"];
-    $category = stripslashes($_POST["category"]);
+    $category = $_POST["category"];
     $userID = $_GET["id"];
     $avatar = $_FILES["thumbnail"];
     //checking that the title is existed or not
@@ -39,19 +39,20 @@ if ($_SESSION["post"]){
     header("Location: http://localhost/blog/admin/add-post.php");
 } else{
     //fetching the category id
-    $sql = "SELECT *FROM categories WHERE title = '$category'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    $sqlCat = "SELECT *FROM categories WHERE title = '$category'";
+    $resultCat = $conn->query($sqlCat);
+    $row = $resultCat->fetch_assoc();
     $catID = $row["id"];
 
     //insert the data into the database
     $sql = "INSERT INTO posts (title,description,category_id ,userId,thumbnail) VALUES('$title','$desc','$catID','$userID','$avatar_name')";
-    $result = $conn->query($sql);
+    $result = mysqli_query($conn,$sql);
     if ($result) {
         $_SESSION["PostSuccess"] = "Blog posted successfuly";
         header("Location: http://localhost/blog/admin/dashboard.php");
     }else{
         header("Location: http://localhost/blog/admin/add-post.php");
+        $_SESSION["post"] = "fuck";
     }
 }
 

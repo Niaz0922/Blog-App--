@@ -14,16 +14,20 @@
     include "admin/config/database.php"; 
     $sql = "SELECT *FROM categories";
     $result = $conn->query($sql);
+    if($_SESSION["search"]){
+        echo '<script>alert("No Post Found")</script>';
+        unset($_SESSION["search"]);
+    }
   
   ?>
     <!-- ========================================= Nav Section Ends ================================ -->
     <!-- ========================================= Search Section Starts ================================ -->
     <section class="search_bar">
-        <form action="" class="container search-container" method="POST">
+        <form action="PHP Logics/searchLogic.php" class="container search-container" method="GET">
             <div>
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" name="" placeholder="Search" id="">
-                <button type="submit" class="btn">Go</button>
+                <input type="search" name="search" placeholder="Search" id="" required>
+                <button type="submit" class="btn" name="searchBTN">Go</button>
             </div>
         </form>
     </section>
@@ -31,181 +35,8 @@
     <!-- ========================================= Blog Section starts ================================ -->
     <section class="posts">
         <div class="container post-container">
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog2.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar3.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog3.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar4.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog4.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar5.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog5.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar8.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog6.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar1.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog7.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar10.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-thumbnail">
-                    <img src="images/blog8.jpg" alt="">
-                </div>
-                <div class="post-info">
-                    <a href="" class="category-button">Greece</a>
-                    <h3 class="post-title">
-                        <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime,
-                            excepturi!</a>
-                    </h3>
-                    <p class="post-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit possimus, asperiores ex quas culpa
-                        blanditiis recusandae cumque.
-                    </p>
-                    <div class="author">
-                        <div class="post-author-avatar">
-                            <img src="images/avatar11.jpg" alt="">
-                        </div>
-                        <div class="post-atuhor-info">
-                            <h5>By: John Goru</h5>
-                            <small>June 14, 2024</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
+           <?php include "PHP Logics/fetchpost.php";?>
+            
         </div>
     </section>
     <!-- ========================================= Blog Section Ends ================================ -->

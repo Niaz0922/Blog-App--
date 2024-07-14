@@ -52,7 +52,7 @@
                         <tr>
                             <td>'.$row["firstname"].'</td>
                             <td class="username">'.$row["username"].'</td>
-                            <td><a href="http://localhost/blog/admin/edituser.php?id='.$row["id"] .'" target="_blank" class="btn" id="editUser">Edit</a></td>
+                            <td><a href="http://localhost/blog/admin/edituser.php?id='.$row["id"] .'" class="btn" id="editUser">Edit</a></td>
                             <td><a href="http://localhost/blog/PHP Logics/EditUserDelete.php?id='.$row["id"] . '" class="btnREd">Delete</a></td>
                             <td>'. $admin .'</td>
                         </tr>
@@ -66,57 +66,7 @@
         </div>
         </setion>
         <!-- ========================================= Foooter starts ================================ -->
-        <footer>
-        <div class="footer-socials">
-            <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        </div>
-        <div class="container footer-container">
-            <article>
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Coding</a></li>
-                    <li><a href="">Help</a></li>
-                    <li><a href="">Music</a></li>
-                </ul>
-            </article>
-            <article>
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Coding</a></li>
-                    <li><a href="">Help</a></li>
-                    <li><a href="">Music</a></li>
-                </ul>
-            </article>
-            <article>
-                <h4>Blog</h4>
-                <ul>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Coding</a></li>
-                    <li><a href="">Help</a></li>
-                    <li><a href="">Music</a></li>
-                </ul>
-            </article>
-            <article>
-                <h4>Peramalinks</h4>
-                <ul>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Coding</a></li>
-                    <li><a href="">Help</a></li>
-                    <li><a href="">Music</a></li>
-                </ul>
-            </article>
-        </div>
-    </footer>
+        <?php include "../partials/footer.php" ?>
     <script src="../javascript/addUSer.js"></script>
  
 </body>

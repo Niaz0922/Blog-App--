@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,53 +9,59 @@
     <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
 </head>
 <!-- ========================================= Nav Section Starts ================================ -->
+
 <body>
-<?php
-    include "partials/header.php"
-  
-  ?>
+    <?php
+    include "partials/header.php";
+    include "admin/config/database.php";
+    $id = $_GET["id"];
+
+    if (isset($id)) {
+        $sqlPost = "SELECT *FROM posts WHERE id = '$id'";
+        $sqlResult = mysqli_query($conn, $sqlPost);
+        $singlePost = mysqli_fetch_assoc($sqlResult);
+
+        //Getting user information
+        $userId = $singlePost["userId"];
+        $sql = "SELECT *FROM users WHERE id = '$userId'";
+        $user_result = $conn->query($sql);
+        $userInfo = mysqli_fetch_assoc($user_result);
+        $date = $singlePost["date"];
+
+    }
+
+    ?>
     <!-- ========================================= Nav Section Ends ================================ -->
     <!-- ========================================= Post Section starts ================================ -->
     <section class="singlePost">
         <div class="container singlePost_container">
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ea.</h2>
+            <h3><?php echo $singlePost['title'] ?></h2>
                 <div class="author">
                     <div class="post-author-avatar">
-                        <img src="images/avatar5.jpg" alt="">
+                        <img src="images/<?php echo $userInfo["avatar"] ?>" alt="">
                     </div>
                     <div class="post-atuhor-info">
-                        <h5>By: John Goru</h5>
-                        <small>June 14, 2024</small>
+                        <h5><?php echo $userInfo["username"] ?></h5>
+                        <small><?php echo date("M d,Y - H:i", strtotime($date)) ?></small>
                     </div>
                 </div>
                 <div class="singlepost_thumbnail">
-                    <img src="images/blog33.jpg" alt="">
+                    <img src="thumbnail/<?php echo $singlePost["thumbnail"] ?>" alt="">
                 </div>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas vero enim culpa magni odio nobis
-                    voluptatem, recusandae veniam aliquam corrupti officia eaque sit perferendis quo. Illum id aut
-                    facere. Tempore temporibus, porro eveniet nemo consequuntur expedita exercitationem voluptate.
-                    Minima, inventore?
+                    <?php echo $singlePost["description"] ?>
                 </p>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas vero enim culpa magni odio nobis
-                    voluptatem, recusandae veniam aliquam corrupti officia eaque sit perferendis quo. Illum id aut
-                    facere. Tempore temporibus, porro eveniet nemo consequuntur expedita exercitationem voluptate.
-                    Minima, inventore?
-                </p>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas vero enim culpa magni odio nobis
-                    voluptatem, recusandae veniam aliquam corrupti officia eaque sit perferendis quo. Illum id aut
-                    facere. Tempore temporibus, porro eveniet nemo consequuntur expedita exercitationem voluptate.
-                    Minima, inventore?
-                </p>
+
         </div>
+
+
     </section>
     <!-- ========================================= Post Section Ends ================================ -->
     <!-- ========================================= Foooter starts ================================ -->
     <?php
     include "partials/footer.php"
-  
-  ?>
+
+        ?>
 </body>
+
 </html>
