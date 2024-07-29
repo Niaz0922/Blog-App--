@@ -10,7 +10,7 @@ if (isset($id)) {
     $thumbnailResult = mysqli_query($conn, $thumbnailSql);
     if (mysqli_num_rows($thumbnailResult) > 0) {
         while ($thumbnail = mysqli_fetch_assoc($thumbnailResult)) {
-            $thumbnailPath = "../thumbnail/" . $thumbnail["thumbnail"];
+            $thumbnailPath = "../../thumbnail/" . $thumbnail["thumbnail"];
             if ($thumbnailPath) {
                 unlink($thumbnailPath);
             }
@@ -26,7 +26,7 @@ if (isset($id)) {
     $avatarResult = mysqli_query($conn, $avatarSql);
     if (mysqli_num_rows($avatarResult) > 0) {
         while ($avatar = mysqli_fetch_assoc($avatarResult)) {
-            $avatarPath = "../images/" . $avatar["avatar"];
+            $avatarPath = "../../images/" . $avatar["avatar"];
             if ($avatarPath) {
                 unlink($avatarPath);
             }

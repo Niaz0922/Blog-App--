@@ -12,7 +12,14 @@
     <?php
     include "../partials/header.php";
     include "config/database.php";
-    $sql = "SELECT *FROM posts";
+    $isPost = false;
+    $page = $_GET["page"];
+    $limit = 3;
+    if(!isset($_GET["page"])){
+        $page = 1;
+    }
+    $offset  = ($page - 1) * $limit;
+    $sql = "SELECT *FROM posts LIMIT {$offset} , 3";
     $result = mysqli_query($conn, $sql);
 
     //checking that the user is admin or not
@@ -61,7 +68,7 @@
                             }
                             
                             if($Isadmin){
-                                while($rowPost = mysqli_fetch_array($result)){
+                                while($rowPost = mysqli_fetch_assoc($result)){
                                     CheckingPostIsfetured($rowPost);
                                     //fetching the category title according the the post category id
                                     $categoryId = $rowPost["category_id"];
@@ -81,10 +88,11 @@
                                 }
                             }else{
                                 $currentUserId = $row["id"];
-                                $sql = "SELECT *FROM posts WHERE userId = '$currentUserId'";
-                                $resultPost = mysqli_query($conn,$sql);
+                                $sqlpost = "SELECT *FROM posts WHERE userId = '$currentUserId'";
+                                $resultPost = mysqli_query($conn,$sqlpost);
                                 if(mysqli_num_rows($resultPost) == 0){
                                     echo '<script>alert("You Have No Posts")</script>';
+                                    $isPost = true;
                                 }else{
                                     while($rowNoAdmin = mysqli_fetch_array($resultPost)){
                                         CheckingPostIsfetured($rowNoAdmin);
@@ -93,7 +101,7 @@
                                     <tr>
                                         <td>'.$rowNoAdmin["title"].'</td>
                                         <td>Category</td>
-                                        <td><a href="http://localhost/blog/admin/editpost.php?id='.$rowNoAdmin["id"].' class="btn">Edit</a></td>
+                                        <td><a href="http://localhost/blog/admin/editpost.php?id='.$rowNoAdmin["id"].'" class="btn">Edit</a></td>
                                         <td><a href="http://localhost/blog/PHP Logics/deletePost.php?id='.$rowNoAdmin["id"].'" class="btnREd">Delete</a></td>
                                         <td>'.$isfeturedAdmin.'</td>
                                     </tr>
@@ -106,7 +114,7 @@
                             }
 
                                     
-                            
+                           
                         
                             
                                
@@ -114,8 +122,49 @@
                        
                                 
                             ?>
+                           
                     </tbody>
+                  
                 </table>
+                <?php if(!$isPost) : ?>
+                <ul class="pagination">
+                    <?php
+                        if($page > 1){
+                           echo '<li><a href="http://localhost/blog/admin/dashboard.php?page='.($page - 1).'" class="btn">Prev</a></li>';
+                        }
+                    ?>
+
+                        <?php 
+                            $postSQl = "SELECT *FROM posts";
+                            $resultPost = mysqli_query($conn, $postSQl);
+                            if (mysqli_num_rows($resultPost) > 0) {
+                                $limit = 3;
+                                $total_posts = mysqli_num_rows($resultPost);
+                                $total_pages = ceil($total_posts / $limit);
+                                for ($x = 1; $x <= $total_pages; $x++) {
+                                    if ($x == $page) {
+                                        $active = "activePaginaiton";
+                                    } else {
+                                        $active = "";
+                                    }
+                            
+                                    echo '<li class="'.$active.' btn"><a href="http://localhost/blog/admin/dashboard.php?page=' . $x . '">' . $x . '</a></li> ';
+                                }
+                            }
+                        ?>
+
+                                <?php
+                        if($total_pages > $page){
+                           echo '<li><a href="http://localhost/blog/admin/dashboard.php?page='.($page + 1).'" class="btn">Next</a></li>';
+                           
+                        }
+                    ?>
+                    
+
+                               
+                    <?php endif?>
+                                    
+                </ul>
             </div>
         </div>
         </setion>

@@ -3,7 +3,7 @@
         $time = time();
         $avatar_name = $time . $avatar["name"];
         $avName = $avatar["name"];
-        $avatar_destination = "../images/" . $avatar_name;
+        $avatar_destination = "../../images/" . $avatar_name;
         $avatar_tmpName = $avatar["tmp_name"];
         $ImageSize = getimagesize($avatar_tmpName);
         $imageWidth = $ImageSize[0];

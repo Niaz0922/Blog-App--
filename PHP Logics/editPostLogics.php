@@ -20,17 +20,9 @@ if (isset($_POST["submit"])) {
     }
     //passing variable $category and $conn to CategoryId funciton
     categoryId($conn, $category);
-    //checking that the post is fetured or not
-    if($isfetured){
-        $feture = 1;
-    }else if(!$isfetured){
-        $feture = 0;
-    }
-
-
     //deleting the existing thumbnail if the new thumbnail is available
     if ($avatar['name']) {
-        $previous_thumbnail_path = "../thumbnail/" . $previousThumbnail;
+        $previous_thumbnail_path = "../../thumbnail/".$previousThumbnail;
         if ($previous_thumbnail_path) {
             unlink($previous_thumbnail_path);
         }
@@ -41,7 +33,7 @@ if (isset($_POST["submit"])) {
         if (in_array($extention, $allowedExtention)) {
             //checking that the file size is below 2mb
             if ($avatar["size"] < 2000000) {
-                $location = "../thumbnail/" . $avatar_name;
+                $location = "../../thumbnail/".$avatar_name;
                 move_uploaded_file($avatar_tmpName, $location);
             } else {
                 $_SESSION["editPost"] = "File is too big . Reduce the file size and image Size";

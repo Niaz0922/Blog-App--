@@ -25,17 +25,19 @@
     <section class="fetured">
         <div class="container fetured-container">
             <div class="post-thumbnail">
-                <img src="thumbnail/<?php echo $feturedPost["thumbnail"] ?>" alt="No">
+                <img src="../thumbnail/<?php echo $feturedPost["thumbnail"] ?>" alt="No">
             </div>
             <div class="post-info">
-                <a href="" class="category-button"><?php echo $FeturedCatBlog ?></a>
-                <h2 class="post-title"><a href="post.php"><?php echo $feturedPost["title"] ?></a></h2>
+                <a href="http://localhost/blog/categoryPost.php?id=<?php echo $resultCatId["id"] ?>" class="category-button"><?php echo $FeturedCatBlog ?></a>
+                <h2 class="post-title"><a href="post.php?id=<?php echo $feturedPost["id"]  ?>"><?php echo $feturedPost["title"] ?></a></h2>
                 <p class="post-body">
                     <?php echo $feturedPost["description"] ?>
                 </p>
                 <div class="author">
                     <div class="post-author-avatar">
-                        <img src="images/<?php echo $feturedUserInfo["avatar"] ?>" alt="Failed">
+                        <a href="http://localhost/blog/profile.php?id=<?php echo $feturedUserInfo["id"]?>">
+                            <img src="../images/<?php echo $feturedUserInfo["avatar"] ?>" alt="Failed">
+                        </a>
                     </div>
                     <div class="post-atuhor-info">
                         <h5><?php echo $feturedUserInfo["username"]?></h5>
@@ -45,22 +47,40 @@
             </div>
         </div>
     </section>
+
     <!-- ========================================= Fetured Section Ends ================================ -->
     <!-- ========================================= Blog Section starts ================================ -->
-    <section class="posts">
-        <div class="container post-container">
+    
         <?php
-           include "PHP Logics/fetchpost.php";
+        //pagination
+        
+            include "PHP Logics/fetchpost.php";
         ?>
-        </div>
-    </section>
+        
     <!-- ========================================= Blog Section Ends ================================ -->
+    <!-- ========================================= Pagination Section Starts ================================ -->
+   
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ========================================= Paginaiton Section Ends ================================ -->
     <!-- ========================================= Category Buttons Section Starts ========================-->
     <section class="category-buttons">
         <div class="container container-buttons">
             <!-- fetching the data from categories table -->
             <?php while($row = mysqli_fetch_assoc($result)){?>
-            <a href="" class="category-button"><?php echo $row["title"] ?></a>
+            <a href="categoryPost.php?id=<?php echo $row["id"] ?>" class="category-button"><?php echo $row["title"] ?></a>
            <?php } ?>
     </section>
     <!-- ========================================= Category Buttons Ends ================================ -->

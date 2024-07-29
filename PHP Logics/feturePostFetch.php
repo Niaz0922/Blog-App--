@@ -1,6 +1,6 @@
 <?php
 
-$feturedSQL = "SELECT *FROM posts WHERE isFetured = 1";
+$feturedSQL = "SELECT *FROM posts WHERE title = 'Javascript'";
 $feturedResult = mysqli_query($conn,$feturedSQL);
 $feturedPost = mysqli_fetch_assoc($feturedResult);
 

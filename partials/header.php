@@ -28,7 +28,7 @@ function commonSQl($username,$conn){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niaz Blog</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/5633e145fd.js" crossorigin="anonymous"></script>
 </head>
@@ -49,11 +49,11 @@ function commonSQl($username,$conn){
                     if (isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])){
                         echo '
                             <div class="avatar">
-                            <img src="http://localhost/blog/images/' . $row["avatar"] . '" alt="">
+                            <img src="../../images/' . $row["avatar"] . '" alt="">
                         </div>
                             ';
                     } else {
-                        echo '<li><a  href="signIn.php">Sign In</a></li>';
+                        echo '<li><a class="btnREd" href="signIn.php">Sign In</a></li>';
                     }
 
                     ?>
@@ -63,7 +63,7 @@ function commonSQl($username,$conn){
                         //checking that the user is logged in or not
                         if (isset($_SESSION["SignIn1"]) OR isset($_COOKIE["username"])) {
                             echo '<li><a href="http://localhost/blog/admin/dashboard.php">Dahshboard</a></li>';
-                            echo ' <li><a href="http://localhost/blog/profile.php">Profile</a></li>';
+                            echo ' <li><a href="http://localhost/blog/profile.php?id='.$row["id"].'">Profile</a></li>';
                             echo ' <li><a href="http://localhost/blog/partials/logout.php">Logout</a></li>';
 
                             //Checking that the user is admin or author

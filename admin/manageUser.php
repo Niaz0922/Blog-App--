@@ -37,7 +37,15 @@
                             </tr>
                     <?php
                         //Fetching the data from database
-                        $sql = "SELECT *FROM users";
+                        
+                        $limit = 3;
+                        if(!isset($_GET["page"])){
+                            $page = 1;
+                        }else{
+                            $page = $_GET["page"];
+                        }
+                        $offset  = ($page - 1) * $limit;
+                        $sql = "SELECT *FROM users LIMIT {$offset} , 3";
                         $result = mysqli_query($conn,$sql);
                         while ($row = mysqli_fetch_assoc($result)) {
                             if($row["IsAdmin"] == 0){
@@ -62,6 +70,40 @@
                     
                     ?>
                 </table>
+        <ul class="pagination">
+
+                <?php
+                        if($page > 1){
+                           echo '<li><a href="http://localhost/blog/admin/manageUser.php?page='.($page - 1).'" class="btn">Prev</a></li>';
+                        }
+                    ?>
+
+                        <?php 
+                            $postSQl = "SELECT *FROM users";
+                            $resultPost = mysqli_query($conn, $postSQl);
+                            if (mysqli_num_rows($resultPost) > 0) {
+                                $limit = 3;
+                                $total_posts = mysqli_num_rows($resultPost);
+                                $total_pages = ceil($total_posts / $limit);
+                                for ($x = 1; $x <= $total_pages; $x++) {
+                                    if ($x == $page) {
+                                        $active = "activePaginaiton";
+                                    } else {
+                                        $active = "";
+                                    }
+                            
+                                    echo '<li class="'.$active.' btn"><a href="http://localhost/blog/admin/manageUser.php?page=' . $x . '">' . $x . '</a></li> ';
+                                }
+                            }
+                        ?>
+
+                                <?php
+                        if($total_pages > $page){
+                           echo '<li><a href="http://localhost/blog/admin/manageUser.php?page='.($page + 1).'" class="btn">Next</a></li>';
+                           
+                        }
+                    ?>
+        </ul>   
             </div>
         </div>
         </setion>

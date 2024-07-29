@@ -33,18 +33,16 @@
     </section>
     <!-- ========================================= Search Section Ends ================================ -->
     <!-- ========================================= Blog Section starts ================================ -->
-    <section class="posts">
-        <div class="container post-container">
+    
            <?php include "PHP Logics/fetchpost.php";?>
             
-        </div>
-    </section>
+        
     <!-- ========================================= Blog Section Ends ================================ -->
     <!-- ========================================= Category Buttons Section Starts ========================-->
     <section class="category-buttons">
         <div class="container container-buttons">
         <?php while($row = mysqli_fetch_assoc($result)){?>
-                <a href="" class="category-button"><?php echo $row["title"] ?></a>
+                <a href="categoryPost.php?id=<?php echo $row["id"] ?>" class="category-button"><?php echo $row["title"] ?></a>
                <?php } ?>
         </div>
     </section>

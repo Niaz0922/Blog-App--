@@ -23,6 +23,10 @@
     $post = mysqli_fetch_assoc($CurrentPostResult);
     $Isadmin = $row["IsAdmin"];
     
+
+
+
+
     
     ?>
     <section class="formSec">

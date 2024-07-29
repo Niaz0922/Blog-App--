@@ -356,6 +356,7 @@ footer ul a {
     cursor: pointer;
     color: white;
 }
+
 /* 
 Single post container section */
 .singlePost {
@@ -440,7 +441,8 @@ Single post container section */
     margin-bottom: 1rem;
     border-radius: var(--card-border-radius-2);
 }
-.alignment{
+
+.alignment {
     position: absolute;
     top: 95px;
     width: var(--container-width-lg);
@@ -451,12 +453,14 @@ Single post container section */
     display: flex;
     justify-content: space-between;
 }
-.close{
+
+.close {
     background-color: transparent;
     cursor: pointer;
-    color:#00c476;
+    color: #00c476;
 }
-.close i{
+
+.close i {
     font-size: 14px;
 }
 
@@ -571,6 +575,7 @@ select {
     font-weight: 600;
     color: black;
 }
+
 .dashboard_container {
     display: flex;
     background-color: var(--color-gray-900);
@@ -593,6 +598,11 @@ select {
     width: 12rem;
     border-bottom: 1px solid black;
     align-items: center;
+}
+
+.LIdiff a {
+    display: flex;
+    gap: 1rem;
 }
 
 .dashboard_container aside .LIdiff:hover {
@@ -659,17 +669,20 @@ table td {
     padding: 40px 90px;
     color: white;
 }
-.userPost{
+
+.userPost {
     padding-bottom: 20px;
     display: flex;
     justify-content: center;
 }
-.userPost p{
+
+.userPost p {
     color: red;
     text-decoration: underline;
     margin-left: 3px;
 }
-.manageBTN{
+
+.manageBTN {
     width: fit-content;
     padding: 0.6rem 1.2rem;
     background-color: var(--color-primary);
@@ -814,7 +827,7 @@ table td {
         justify-content: center;
     }
 
-    
+
 }
 
 @media screen and (max-width:790px) {
@@ -857,9 +870,9 @@ table td {
     .active {
         width: 90px;
         justify-content: center;
-    }alert_message_error_err
+    }
 
-    .dashboard_container {
+    alert_message_error_err .dashboard_container {
         overflow: visible;
         height: auto;
     }
@@ -880,9 +893,9 @@ table td {
     .category h2 {
         text-align: center;
     }
-     
 
-    
+
+
 }
 
 @media screen and (max-width:600px) {
@@ -974,19 +987,46 @@ table td {
 }
 
 @media screen and (max-width:590px) {
-    table{
+    table {
         overflow-x: scroll;
     }
 }
 
 
-alert_message_error_success
+
 @media screen and (max-width:530px) {
-    .category{
+    .category {
         overflow-y: scroll;
     }
 
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.activePaginaiton {
+    background-color: red;
+}
+
+/* user profile style starts ---------------------------- */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* user profile style ends ---------------------------- */

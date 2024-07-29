@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
         include "validatingFile.php";
         if (in_array($extention, $allowedExtention)) {
             if ($avatar["size"] < 2000000) {
-                $location = "../thumbnail/" . $avatar_name;
+                $location = "../../thumbnail/" . $avatar_name;
                 move_uploaded_file($avatar_tmpName, $location);
             } else {
                 $_SESSION["post"] = "File is too big . Reduce the file size and image Size";
@@ -52,7 +52,7 @@ if ($_SESSION["post"]){
         header("Location: http://localhost/blog/admin/dashboard.php");
     }else{
         header("Location: http://localhost/blog/admin/add-post.php");
-        $_SESSION["post"] = "fuck";
+        $_SESSION["post"] = $error;
     }
 }
 

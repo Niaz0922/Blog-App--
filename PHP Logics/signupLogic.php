@@ -7,7 +7,7 @@ if (isset($_POST["submit"])) {
     $firstname = stripcslashes($_POST["firstname"]);
     $lastname =  stripcslashes($_POST["lastname"]);
     $username =  stripcslashes($_POST["username"]);
-    $email = $_POST["email"];
+    $email = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL);
     $createpassword = $_POST["createpassword"];
     $confirmpassword = $_POST["confirmPass"];
     $avatar = $_FILES['avatarImage'];
@@ -36,6 +36,10 @@ if (isset($_POST["submit"])) {
         }
     }
 }
+
+
+
+//if all the validation is passed then the user will be redirect to sign in page
 if ($_SESSION["SignUp"]) {
     //if there is any error setting a session to get back the data and redirecting the user to signUp page
     header("Location: http://localhost/blog/signup.php");
@@ -45,7 +49,9 @@ if ($_SESSION["SignUp"]) {
     $InsertData = "INSERT INTO users (firstname,lastname,username,email,password,avatar) VALUES ('$firstname','$lastname','$username','$email','$hashedPass','$avatar_name')";
     $result = mysqli_query($conn, $InsertData);
     if ($result) {
-        $_SESSION["SignUp"] = "Registration Successfull";
+        //locating to the sign in page after signup
         header("Location: http://localhost/blog/signin.php");
     }
 }
+
+

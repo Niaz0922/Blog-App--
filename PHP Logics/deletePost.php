@@ -9,7 +9,7 @@
         $row = mysqli_fetch_assoc($result);
         //deleting the thumbnail from images folder
         $thumbnail_Name = $row["thumbnail"];
-        $thumbnail_Path = "../thumbnail/" . $thumbnail_Name;
+        $thumbnail_Path = "../../thumbnail/".$thumbnail_Name;
 
         if($thumbnail_Path){
             unlink($thumbnail_Path);

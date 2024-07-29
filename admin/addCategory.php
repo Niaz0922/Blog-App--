@@ -8,8 +8,6 @@
 </head>
 <body>
     <?php
-    
-    include "../adminCheck.php";
     session_start();
     ?>
     <section class="formSec">

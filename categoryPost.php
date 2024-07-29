@@ -37,10 +37,15 @@
     </section>
     <!-- ========================================= Blog Section starts ================================ -->
     <section class="posts">
-        <div class="container post-container">
+        <div style="margin-bottom:200px;" class="container post-container">
             <?php
                 if(mysqli_num_rows($postResult) > 0){
                     while($posts = mysqli_fetch_assoc($postResult)){
+                        //category
+                        $catId = $posts['category_id'];
+                        $sql = "SELECT *FROM categories WHERE id = '$catId'";
+                        $Category_title_sql_result = mysqli_query($conn,$sql);
+                        $category_title = mysqli_fetch_assoc($Category_title_sql_result);
 //getting user information---------------------------------------------
                     $userId = $posts["userId"];
                     $sql = "SELECT *FROM users WHERE id = '$userId'";
@@ -50,19 +55,22 @@
                         echo '
                         <article class="post">
                         <div class="post-thumbnail">
-                            <img src="thumbnail/'.$posts["thumbnail"].'" alt="">
+                            <img src="../thumbnail/'.$posts["thumbnail"].'" alt="">
                         </div>
                         <div class="post-info">
-                            <a href="" class="category-button">Greece</a>
+                            <a href="http://localhost/blog/categoryPost.php?id='.$category_title['id'].'" class="category-button">'.$category_title["title"].'</a>
                             <h3 class="post-title">
-                                <a href="post.html">'.$posts["title"].'</a>
+                                <a href="post.php?id='.$posts['id'].'">'.$posts["title"].'</a>
                             </h3>
                             <p class="post-body">
                                '.$posts["description"].'
                             </p>
                             <div class="author">
                                 <div class="post-author-avatar">
-                                    <img src="images/'.$userInfo["avatar"].'" alt="">
+                                <a href="http://localhost/blog/profile.php?id='.$userInfo['id'].'">
+                                    <img src="../images/'.$userInfo["avatar"].'" alt="">
+                                </a>
+                                    
                                 </div>
                                 <div class="post-atuhor-info">
                                     <h5>By: '.$userInfo["username"].'</h5>
@@ -74,6 +82,10 @@
                         ';
                     }
 
+                }else{
+                    echo '            
+                        <h2 style="position:absolute;left:450px;">No Post Available in this Category</h2>
+                    ';
                 }
             ?>
            

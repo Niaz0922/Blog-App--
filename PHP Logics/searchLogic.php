@@ -46,7 +46,7 @@ if(mysqli_num_rows($result)){
         <div class="container post-container">
         <article class="post">
         <div class="post-thumbnail">
-            <img src="../thumbnail/' . $blogs["thumbnail"] . '" alt="">
+            <img src="../../thumbnail/' . $blogs["thumbnail"] . '" alt="">
         </div>
         <div class="post-info">
             <a href="http://localhost/blog/categoryPost.php?id=' . $resultCatId["id"] . '" class="category-button">' . $categoryBlog . '</a>
@@ -58,7 +58,9 @@ if(mysqli_num_rows($result)){
             </p>
             <div class="author">
                 <div class="post-author-avatar">
-                    <img src="../images/' . $userInfo["avatar"] . '" alt="">
+                <a href="http://localhost/blog/profile.php?id='.$userInfo["id"].'">
+                   <img src="../../images/' . $userInfo["avatar"] . '" alt="">
+                </a>   
                 </div>
                 <div class="post-atuhor-info">
                     <h5>' . $userInfo["username"] . '</h5>

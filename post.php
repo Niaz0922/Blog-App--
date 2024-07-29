@@ -38,7 +38,10 @@
             <h3><?php echo $singlePost['title'] ?></h2>
                 <div class="author">
                     <div class="post-author-avatar">
-                        <img src="images/<?php echo $userInfo["avatar"] ?>" alt="">
+                        <a href="http://localhost/blog/profile.php?id=<?php echo $userInfo['id'] ?>">
+                            <img src="../images/<?php echo $userInfo["avatar"] ?>" alt="">
+                        </a>
+                        
                     </div>
                     <div class="post-atuhor-info">
                         <h5><?php echo $userInfo["username"] ?></h5>
@@ -46,7 +49,7 @@
                     </div>
                 </div>
                 <div class="singlepost_thumbnail">
-                    <img src="thumbnail/<?php echo $singlePost["thumbnail"] ?>" alt="">
+                    <img src="../thumbnail/<?php echo $singlePost["thumbnail"] ?>" alt="">
                 </div>
                 <p>
                     <?php echo $singlePost["description"] ?>

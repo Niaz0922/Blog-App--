@@ -11,9 +11,6 @@ session_start();
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <?php
-    include "../adminCheck.php";
-    ?>
     <section class="formSec">
         <div class="container sign_container">
             <h2>Add User</h2>
